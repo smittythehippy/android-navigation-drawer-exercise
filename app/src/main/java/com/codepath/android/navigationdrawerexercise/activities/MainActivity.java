@@ -35,15 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        nvDrawer = findViewById(R.id.nvView);
 
         mDrawer = findViewById(R.id.drawer_layout);
         drawerToggle = setupDrawerToggle();
 
         // Tie DrawerLayout events to the ActionBarToggle
-        mDrawer.addDrawerListener(drawerToggle);
 
-        nvDrawer = findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
+        mDrawer.addDrawerListener(drawerToggle);
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
                 fragmentClass = SouthParkFragment.class;
-                break;
         }
 
         try {
@@ -106,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawer.closeDrawers();
 
+
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -120,5 +120,4 @@ public class MainActivity extends AppCompatActivity {
         // Pass any configuration change to the drawer toggles
         drawerToggle.onConfigurationChanged(newConfig);
     }
-
 }
